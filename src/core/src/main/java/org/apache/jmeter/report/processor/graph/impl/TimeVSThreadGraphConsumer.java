@@ -21,7 +21,7 @@ import java.util.Collections;
 import java.util.Map;
 
 import org.apache.jmeter.report.processor.MapResultData;
-import org.apache.jmeter.report.processor.MeanAggregatorFactory;
+import org.apache.jmeter.report.processor.PercentileAggregatorFactory;
 import org.apache.jmeter.report.processor.graph.AbstractGraphConsumer;
 import org.apache.jmeter.report.processor.graph.ElapsedTimeValueSelector;
 import org.apache.jmeter.report.processor.graph.GraphKeysSelector;
@@ -29,7 +29,7 @@ import org.apache.jmeter.report.processor.graph.GroupInfo;
 import org.apache.jmeter.report.processor.graph.NameSeriesSelector;
 
 /**
- * The class TimeVSThreadGraphConsumer provides a graph to visualize average response time
+ * The class TimeVSThreadGraphConsumer provides a graph to visualize P90 response time
  * vs number of threads
  *
  * @since 3.0
@@ -55,10 +55,12 @@ public class TimeVSThreadGraphConsumer extends AbstractGraphConsumer {
      */
     @Override
     protected Map<String, GroupInfo> createGroupInfos() {
+        PercentileAggregatorFactory factory = new PercentileAggregatorFactory();
+        factory.setPercentileIndex(90);
         return Collections.singletonMap(
                 AbstractGraphConsumer.DEFAULT_GROUP,
                 new GroupInfo(
-                        new MeanAggregatorFactory(), new NameSeriesSelector(),
+                        factory, new NameSeriesSelector(),
                         // We include Transaction Controller results
                         new ElapsedTimeValueSelector(false), false, true));
     }
