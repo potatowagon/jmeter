@@ -20,7 +20,6 @@ package org.apache.jmeter.report.processor.graph.impl;
 import java.util.Collections;
 import java.util.Map;
 
-import org.apache.jmeter.report.processor.MedianAggregatorFactory;
 import org.apache.jmeter.report.processor.graph.AbstractGraphConsumer;
 import org.apache.jmeter.report.processor.graph.AbstractVersusRequestsGraphConsumer;
 import org.apache.jmeter.report.processor.graph.GraphKeysSelector;
@@ -62,7 +61,7 @@ public class LatencyVSRequestGraphConsumer extends
         return Collections.singletonMap(
                 AbstractGraphConsumer.DEFAULT_GROUP,
                 new GroupInfo(
-                        new MedianAggregatorFactory(), new StatusSeriesSelector(),
+                        this.createDefaultAggregatorFactory(), new StatusSeriesSelector(),
                         // We ignore Transaction Controller results
                         new LatencyValueSelector(true), false, false));
     }

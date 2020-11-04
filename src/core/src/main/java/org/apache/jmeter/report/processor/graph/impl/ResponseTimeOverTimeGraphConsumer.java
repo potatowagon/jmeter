@@ -62,7 +62,7 @@ public class ResponseTimeOverTimeGraphConsumer extends
         return Collections.singletonMap(
                 AbstractGraphConsumer.DEFAULT_GROUP,
                 new GroupInfo(
-                        new MeanAggregatorFactory(), new NameSeriesSelector(),
+                        this.createDefaultAggregatorFactory(), new NameSeriesSelector(),
                         // We include Transaction Controller results
                         new ElapsedTimeValueSelector(false), false, false));
     }

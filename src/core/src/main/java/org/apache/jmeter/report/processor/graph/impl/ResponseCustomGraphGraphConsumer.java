@@ -20,7 +20,6 @@ package org.apache.jmeter.report.processor.graph.impl;
 import java.util.Collections;
 import java.util.Map;
 
-import org.apache.jmeter.report.processor.MeanAggregatorFactory;
 import org.apache.jmeter.report.processor.graph.AbstractGraphConsumer;
 import org.apache.jmeter.report.processor.graph.AbstractOverTimeGraphConsumer;
 import org.apache.jmeter.report.processor.graph.ElapsedTimeValueSelector;
@@ -62,7 +61,7 @@ public class ResponseCustomGraphGraphConsumer extends
         return Collections.singletonMap(
                 AbstractGraphConsumer.DEFAULT_GROUP,
                 new GroupInfo(
-                        new MeanAggregatorFactory(), new NameSeriesSelector(),
+                        this.createDefaultAggregatorFactory(), new NameSeriesSelector(),
                         // We include Transaction Controller results
                         new ElapsedTimeValueSelector(false), false, false));
     }

@@ -29,6 +29,7 @@ import org.apache.jmeter.report.processor.AggregatorFactory;
 import org.apache.jmeter.report.processor.ListResultData;
 import org.apache.jmeter.report.processor.MapResultData;
 import org.apache.jmeter.report.processor.ValueResultData;
+import org.apache.jmeter.report.processor.PercentileAggregatorFactory;
 
 /**
  * <p>
@@ -574,5 +575,11 @@ public abstract class AbstractGraphConsumer extends AbstractSampleConsumer {
     public void initialize() {
         keysSelector = createKeysSelector();
         groupInfos = new HashMap<>(createGroupInfos());
+    }
+
+    public AggregatorFactory createDefaultAggregatorFactory() {
+        PercentileAggregatorFactory factory = new PercentileAggregatorFactory();
+        factory.setPercentileIndex(90);
+        return factory;
     }
 }
