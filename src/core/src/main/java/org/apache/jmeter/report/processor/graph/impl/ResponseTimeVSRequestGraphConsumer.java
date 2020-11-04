@@ -60,7 +60,7 @@ public class ResponseTimeVSRequestGraphConsumer extends
         return Collections.singletonMap(
                 AbstractGraphConsumer.DEFAULT_GROUP,
                 new GroupInfo(
-                        new MedianAggregatorFactory(), new StatusSeriesSelector(),
+                        this.createDefaultAggregatorFactory(), new StatusSeriesSelector(),
                         // We ignore Transaction Controller results
                         new ElapsedTimeValueSelector(true), false, false));
     }

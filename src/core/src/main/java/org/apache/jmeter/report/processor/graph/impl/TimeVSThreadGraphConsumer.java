@@ -21,7 +21,6 @@ import java.util.Collections;
 import java.util.Map;
 
 import org.apache.jmeter.report.processor.MapResultData;
-import org.apache.jmeter.report.processor.PercentileAggregatorFactory;
 import org.apache.jmeter.report.processor.graph.AbstractGraphConsumer;
 import org.apache.jmeter.report.processor.graph.ElapsedTimeValueSelector;
 import org.apache.jmeter.report.processor.graph.GraphKeysSelector;
@@ -55,12 +54,10 @@ public class TimeVSThreadGraphConsumer extends AbstractGraphConsumer {
      */
     @Override
     protected Map<String, GroupInfo> createGroupInfos() {
-        PercentileAggregatorFactory factory = new PercentileAggregatorFactory();
-        factory.setPercentileIndex(90);
         return Collections.singletonMap(
                 AbstractGraphConsumer.DEFAULT_GROUP,
                 new GroupInfo(
-                        factory, new NameSeriesSelector(),
+                        this.createDefaultAggregatorFactory(), new NameSeriesSelector(),
                         // We include Transaction Controller results
                         new ElapsedTimeValueSelector(false), false, true));
     }

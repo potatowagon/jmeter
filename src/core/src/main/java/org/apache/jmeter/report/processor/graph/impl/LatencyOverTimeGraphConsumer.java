@@ -20,7 +20,7 @@ package org.apache.jmeter.report.processor.graph.impl;
 import java.util.Collections;
 import java.util.Map;
 
-import org.apache.jmeter.report.processor.MeanAggregatorFactory;
+import org.apache.jmeter.report.processor.PercentileAggregatorFactory;
 import org.apache.jmeter.report.processor.graph.AbstractGraphConsumer;
 import org.apache.jmeter.report.processor.graph.AbstractOverTimeGraphConsumer;
 import org.apache.jmeter.report.processor.graph.GroupInfo;
@@ -61,7 +61,7 @@ public class LatencyOverTimeGraphConsumer extends AbstractOverTimeGraphConsumer 
         return Collections.singletonMap(
                 AbstractGraphConsumer.DEFAULT_GROUP,
                 new GroupInfo(
-                        new MeanAggregatorFactory(), new NameSeriesSelector(),
+                        this.createDefaultAggregatorFactory(), new NameSeriesSelector(),
                         // We ignore Transaction Controller results
                         new LatencyValueSelector(false), false, false));
     }
