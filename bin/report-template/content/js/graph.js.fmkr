@@ -355,7 +355,7 @@ var timeVsThreadsInfos = {
                     axisLabelPadding: 20,
                 },
                 yaxis: {
-                    axisLabel: "Average response times in ms",
+                    axisLabel: "P90 response times in ms",
                     axisLabelUseCanvas: true,
                     axisLabelFontSizePixels: 12,
                     axisLabelFontFamily: 'Verdana, Arial',
@@ -370,7 +370,7 @@ var timeVsThreadsInfos = {
                 },
                 tooltip: true,
                 tooltipOpts: {
-                    content: "%s: At %x.2 active threads, Average response time was %y.2 ms"
+                    content: "%s: At %x.2 active threads, P90 response time was %y.2 ms"
                 }
             };
         },
@@ -505,7 +505,7 @@ var responseTimesOverTimeInfos = {
                     axisLabelPadding: 20,
                 },
                 yaxis: {
-                    axisLabel: "Average response time in ms",
+                    axisLabel: "P90 response time in ms",
                     axisLabelUseCanvas: true,
                     axisLabelFontSizePixels: 12,
                     axisLabelFontFamily: 'Verdana, Arial',
@@ -525,7 +525,7 @@ var responseTimesOverTimeInfos = {
                 },
                 tooltip: true,
                 tooltipOpts: {
-                    content: "%s : at %x Average response time was %y ms"
+                    content: "%s : at %x P90 response time was %y ms"
                 }
             };
         },
@@ -586,7 +586,7 @@ var latenciesOverTimeInfos = {
                     axisLabelPadding: 20,
                 },
                 yaxis: {
-                    axisLabel: "Average response latencies in ms",
+                    axisLabel: "P90 response latencies in ms",
                     axisLabelUseCanvas: true,
                     axisLabelFontSizePixels: 12,
                     axisLabelFontFamily: 'Verdana, Arial',
@@ -606,7 +606,7 @@ var latenciesOverTimeInfos = {
                 },
                 tooltip: true,
                 tooltipOpts: {
-                    content: "%s : at %x Average latency was %y ms"
+                    content: "%s : at %x P90 latency was %y ms"
                 }
             };
         },
@@ -667,7 +667,7 @@ var connectTimeOverTimeInfos = {
                     axisLabelPadding: 20,
                 },
                 yaxis: {
-                    axisLabel: "Average Connect Time in ms",
+                    axisLabel: "P90 Connect Time in ms",
                     axisLabelUseCanvas: true,
                     axisLabelFontSizePixels: 12,
                     axisLabelFontFamily: 'Verdana, Arial',
@@ -687,7 +687,7 @@ var connectTimeOverTimeInfos = {
                 },
                 tooltip: true,
                 tooltipOpts: {
-                    content: "%s : at %x Average connect time was %y ms"
+                    content: "%s : at %x P90 connect time was %y ms"
                 }
             };
         },
@@ -1413,4 +1413,3 @@ function toggleAll(id, checked){
         });
     }
 }
-
